@@ -1,0 +1,221 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Animated gradient background */
+  background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #2193b0);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Gradient animation */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.weather-app {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  max-width: 600px;
+  width: 90%;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 25px;
+  color: white;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Fade-in animation for card */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255,255,255,0.3);
+  color: white;
+}
+
+input::placeholder {
+  color: #f0f0f0;
+}
+
+.search-btn,
+.location-btn {
+  padding: 12px;
+  border-radius: 12px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.search-btn {
+  background: #3498db;
+}
+.search-btn:hover {
+  background: #2980b9;
+  transform: scale(1.1);
+}
+
+.location-btn {
+  background: #27ae60;
+}
+.location-btn:hover {
+  background: #1e8449;
+  transform: scale(1.1);
+}
+
+.city {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.date {
+  background: rgba(255,255,255,0.3);
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.temperature-info {
+  margin: 20px 0;
+}
+
+.temp {
+  font-size: 6rem;
+  font-weight: bold;
+  margin: 10px 0;
+  animation: pulse 2s infinite;
+}
+
+/* Pulse animation for temp */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.weather-icon {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+/* Bounce animation for icons */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.additional-info {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.wind-info,
+.humidity-info,
+.visibility-info {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s, background 0.3s;
+}
+
+/* Hover animation for cards */
+.wind-info:hover,
+.humidity-info:hover,
+.visibility-info:hover {
+  transform: translateY(-8px) scale(1.05);
+  background: rgba(255,255,255,0.4);
+}
+
+.additional-info .material-icons {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+.footer {
+  position: fixed;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  animation: fadeIn 2s ease;
+}
+
+.footer span {
+  font-weight: bold;
+  color: #ffeb3b;
+  text-shadow: 0px 0px 8px rgba(255, 235, 59, 0.7);
+}
+
+/* Cloud Background */
+.clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Behind the weather card */
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  background: url('https://i.ibb.co/5GzXkwq/cloud.png') no-repeat;
+  background-size: contain;
+  width: 200px;
+  height: 120px;
+  opacity: 0.7;
+  animation: moveClouds 60s linear infinite;
+}
+
+/* Different cloud positions */
+.cloud1 { top: 50px; left: -250px; animation-duration: 70s; }
+.cloud2 { top: 150px; left: -300px; animation-duration: 90s; }
+.cloud3 { top: 250px; left: -200px; animation-duration: 120s; }
+
+/* Cloud Movement Animation */
+@keyframes moveClouds {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
