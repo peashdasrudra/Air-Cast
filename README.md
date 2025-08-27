@@ -1,1 +1,1 @@
-Live Link: https://peashdasrudra.github.io/Air-Cast/
+Live Link: https://bitly.cx/air_cast
